@@ -1,2 +1,3 @@
 # adult-dataset
-Final Project from COC800 - Data Mining course @ COPPE/UFRJ
+
+Final Project for COC800 Data Mining course @ COPPE/UFRJ
