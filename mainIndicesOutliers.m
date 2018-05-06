@@ -4,9 +4,11 @@ clc
 
 load('matriz-dissimilaridades-dataset-10pct.mat')
 
+A = csvread('dataset-amostrado-10pct-sem-cabecalho.csv');
+
 media_dissimilaridades = mean(D);
 
-M = [media_dissimilaridades' (1:length(media_dissimilaridades))'];
+M = [media_dissimilaridades' A(:,1)];
 
 M2 = sortrows(M,[1]);
 
@@ -20,7 +22,7 @@ y = ylim;
 plot(ceil(0.9*size(M2,1))*ones(100,1), linspace(y(1),y(2),100), 'r'); 
 hold off;
 
-title('Dissimilaridades médias por registro (ordem crescente)')
+title('Dissimilaridades mÃ©dias por registro (ordem crescente)')
 
 indices_registros_outliers = M2(end-ceil(0.1*size(M2,1))+1:end, 2);
 
