@@ -2,7 +2,7 @@ clear all
 close all
 clc
 
-load('../matriz-dissimilaridades-dataset-10pct.mat')
+load('./matriz-dissimilaridades-dataset-10pct.mat')
 
 A = csvread('dataset-amostrado-10pct-sem-cabecalho.csv');
 
@@ -14,15 +14,17 @@ M2 = sortrows(M,[1]);
 
 figure; imagesc(D); colorbar
 title('Matriz de Dissimilaridades', 'FontSize', 20)
+set(gca, 'FontSize', 15)
 
 figure;
-plot(M2(:,1)); 
+plot(M2(:,1), 'LineWidth', 2); 
 hold on; 
 y = ylim; 
-plot(ceil(0.9*size(M2,1))*ones(100,1), linspace(y(1),y(2),100), 'r'); 
+plot(ceil(0.9*size(M2,1))*ones(100,1), linspace(y(1),y(2),100), 'Color', 'red', 'LineWidth', 2); 
 hold off;
 
-title('Dissimilaridades mÃ©dias por registro (ordem crescente)', 'FontSize', 20)
+title('Dissimilaridades médias por registro', 'FontSize', 20)
+set(gca, 'FontSize', 15)
 
 indices_registros_outliers = M2(end-ceil(0.1*size(M2,1))+1:end, 2);
 
